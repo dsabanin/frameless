@@ -195,7 +195,7 @@ case class Spark2_4_LambdaVariable(
     }
   }
 
-  override def genCode(ctx: CodegenContext): ExprCode = {
+  def genCodeInternal(ctx: CodegenContext): ExprCode = {
     val isNullValue = if (nullable) {
       JavaCode.isNullVariable(isNull)
     } else {

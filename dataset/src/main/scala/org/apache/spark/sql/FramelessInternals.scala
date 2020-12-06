@@ -58,7 +58,7 @@ object FramelessInternals {
     def children: Seq[Expression] = tagged :: Nil
     def dataType: DataType = tagged.dataType
     protected def doGenCode(ctx: CodegenContext, ev: ExprCode): ExprCode = ???
-    override def genCode(ctx: CodegenContext): ExprCode = tagged.genCode(ctx)
+    def genCodeInternal(ctx: CodegenContext): ExprCode = tagged.genCode(ctx)
   }
 
   /** Expression to tag columns from the right hand side of join expression. */
@@ -68,6 +68,6 @@ object FramelessInternals {
     def children: Seq[Expression] = tagged :: Nil
     def dataType: DataType = tagged.dataType
     protected def doGenCode(ctx: CodegenContext, ev: ExprCode): ExprCode = ???
-    override def genCode(ctx: CodegenContext): ExprCode = tagged.genCode(ctx)
+    def genCodeInternal(ctx: CodegenContext): ExprCode = tagged.genCode(ctx)
   }
 }
